@@ -16,16 +16,16 @@
     "gout": "nature"
   },
   {
-    "race": "Pringles",
-    "region": "Etats-Unis",
+    "marque": "Pringles",
+    "origine": "Etats-Unis",
     "taille": "S",
     "poids": 40,
     "prix": 1.22,
     "gout": "sour cream"
   },
   {
-    "race": "Brets",
-    "region": "France",
+    "marque": "Brets",
+    "origine": "France",
     "taille": "M",
     "poids": 75,
     "prix": 0.9,
