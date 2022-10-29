@@ -1,0 +1,12 @@
+.form {
+  text-align: right;
+  max-width: 57%;
+}
+
+.btn {
+  text-align: center;
+}
+.mat-input-flex.mat-form-field-flex {
+  border: 1px solid black;
+  border-color: black;
+}

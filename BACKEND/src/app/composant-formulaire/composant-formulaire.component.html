@@ -1,0 +1,88 @@
+<div class="form">
+  <label>Prénom : </label>
+  <input [(ngModel)]="prenom" />
+  <br />
+  <br />
+  <label>Nom : </label>
+  <input [(ngModel)]="nom" />
+  <br />
+  <br />
+  <label>Adresse : </label>
+  <input [(ngModel)]="adresse" />
+  <br />
+  <br />
+  <div #errCp *ngIf="isShownCp" style="color: red; font-size: small">
+    le code postal doit contenir 5 chiffres
+  </div>
+  <label>Code Postal : </label>
+  <input
+    id="codePostalChamps"
+    name="codePostalChampss"
+    #codePostalChamps
+    class="mat-input-flex.mat-form-field-flex"
+    [(ngModel)]="cp"
+    inputCp
+  />
+  <br />
+  <br />
+  <label>Ville : </label>
+  <input [(ngModel)]="ville" />
+  <br />
+  <br />
+  <label> Pays : </label>
+  <input [(ngModel)]="pays" />
+  <br />
+  <br />
+  <div #errTel *ngIf="isShownTel" style="color: red; font-size: small">
+    le numéro de télephone doit contenir 10 chiffres
+  </div>
+  <label>Télephone : </label>
+  <input
+    [(ngModel)]="tel"
+    #telnumber
+    class="mat-input-flex.mat-form-field-flex"
+  />
+  <br />
+  <br />
+  <label>E-mail : </label>
+  <input [(ngModel)]="email" />
+  <br />
+  <br />
+  <label>Civilité : </label>
+  <input [(ngModel)]="civilite" />
+  <br />
+  <br />
+  <label>Identifiant : </label>
+  <input [(ngModel)]="login" />
+  <br />
+  <br />
+  <label>Mot de passe : </label>
+  <input [(ngModel)]="password" type="password" />
+  <br />
+  <br />
+  <button (click)="clic()" style="margin-right: 8%">Envoyer</button>
+</div>
+
+<br />
+<br />
+
+<div>
+  <app-composant-validation
+    [firstname]="prenom"
+    [lastname]="nom"
+    [lastname]="nom"
+    [adress]="adresse"
+    [pc]="cp"
+    [city]="ville"
+    [country]="pays"
+    [phone]="tel"
+    [mail]="email"
+    [civ]="civilite"
+    [userid]="login"
+    [pass]="password"
+    [champsPC]="codePostalChamps"
+    (change)="clicChange()"
+  ></app-composant-validation>
+</div>
+
+<div *ngIf="recapShow">{{ recap }}</div>
