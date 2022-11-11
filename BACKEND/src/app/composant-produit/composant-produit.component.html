@@ -1,39 +1,36 @@
-<div class="catalogue-content">
-  <fieldset>
-    <legend>PRODUITS</legend>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Marque</th>
-          <th>Origine</th>
-          <th>Taille</th>
-          <th>Poids</th>
-          <th>Prix</th>
-          <th>Goût</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let c of catalogue$ | async">
-          <td>{{ c.marque }}</td>
-          <td>{{ c.origine }}</td>
-          <td>{{ c.taille }}</td>
-          <td>{{ c.poids }}g</td>
-          <td>{{ c.prix }}€</td>
-          <td>{{ c.gout }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </fieldset>
-
-  <div class="container">
-    <div class="vertical-center">
-      <button class="btnFilterBySize" (click)="filterBySize('XL')">
-        Uniquement les chips de taille familial XL
-      </button>
-      <button class="btnAllProducts" (click)="allProduits()">
-        Tous les chips
-      </button>
+<div class="container bootstrap snipets">
+  <h1 class="text-center text-muted">Product catalog</h1>
+  <div class="row flow-offset-1">
+    <div *ngFor="let product of products$ | async" class="col-xs-6 col-md-6">
+      <div class="product tumbnail thumbnail-3 product-bloc">
+        <a [routerLink]="['/catalogue/product/', product.id]"
+          ><img class="imgP" src="{{ product.image }}" alt=""
+        /></a>
+        <div class="caption">
+          <h6>
+            <a [routerLink]="['/catalogue/product/', product.id]">{{
+              product.name
+            }}</a>
+          </h6>
+          <span style="font-size: x-small">{{ product.description }}</span
+          ><br />
+          <span class="price sale"> {{ product.price }} €</span>
+          <div>
+            <button
+              style="float: right"
+              (click)="addProduitToPanier(product)"
+              type="button"
+              class="btn btn-default"
+            >
+              <span
+                class="glyphicon glyphicon-shopping-cart"
+                aria-hidden="true"
+              ></span>
+              Ajouter au panier
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

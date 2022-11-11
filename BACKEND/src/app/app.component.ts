@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,5 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'TP03';
+  title = 'tp4_halabi_mariam';
 }

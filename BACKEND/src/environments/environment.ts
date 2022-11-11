@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  catalogue: '/assets/bouchonCatalogue.json',
-  name: 'default',
+  catalogue: '../assets/catalogueMock.json',
 };
 
 /*

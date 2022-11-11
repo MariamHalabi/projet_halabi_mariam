@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Votre panier</h2>
+
+  <div *ngIf="(products$ | async)?.length == 0">
+    <p>Le panier est vide</p>
+  </div>
+
+  <ul class="media-list">
+    <li *ngFor="let product of products$ | async; index as i" class="media">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="media-left">
+            <img class="media-object" src="{{ product.image }}" alt="..." />
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{ product.name }}</h4>
+            <p>{{ product.description }}</p>
+            <p>Prix : {{ product.price }} €</p>
+            <button
+              (click)="removeProduitFromPanier(i)"
+              type="button"
+              class="btn btn-danger"
+            >
+              <span
+                class="glyphicon glyphicon-remove"
+                aria-hidden="true"
+              ></span>
+              Supprimer du panier
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

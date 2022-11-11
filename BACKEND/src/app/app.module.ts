@@ -1,29 +1,27 @@
 import { NgModule } from '@angular/core';
+import { NgxsModule } from '@ngxs/store';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { ComposantTetiaireComponent } from './composant-tetiaire/composant-tetiaire.component';
-import { ComposantFormulaireComponent } from './composant-formulaire/composant-formulaire.component';
-import { ComposantValidationComponent } from './composant-validation/composant-validation.component';
 import { ComposantFooterComponent } from './composant-footer/composant-footer.component';
-import { CtrlDataDirectiveDirective } from './ctrl-data-directive.directive';
-import { PhonePipe } from './phone.pipe';
-import { ComposantProduitComponent } from './composant-produit/composant-produit.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AccueilComponent } from './accueil/accueil/accueil.component';
+import { EtatPanier } from './shared/etats/etat-panier';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComposantTetiaireComponent,
-    ComposantFormulaireComponent,
-    ComposantValidationComponent,
     ComposantFooterComponent,
-    CtrlDataDirectiveDirective,
-    PhonePipe,
-    ComposantProduitComponent,
+    AccueilComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [
+    NgxsModule.forRoot([EtatPanier]),
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
