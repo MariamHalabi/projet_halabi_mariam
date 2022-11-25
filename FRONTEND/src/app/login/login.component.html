@@ -1,0 +1,60 @@
+<div class="container">
+  <div
+    *ngIf="loggedIn"
+    class="alert alert-success alert-dismissible"
+    role="alert"
+  >
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Connexion réussie</strong>
+  </div>
+
+  <div
+    *ngIf="jwtError && !loggedIn"
+    class="alert alert-danger alert-dismissible"
+    role="alert"
+  >
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Erreur : </strong> Vous devez vous connecter pour pouvoir accéder à
+    cette page
+  </div>
+
+  <h2>Espace Client</h2>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    style="text-align: center; max-width: 20%; margin-left: 40%"
+  >
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input
+        type="text"
+        class="form-control"
+        id="login"
+        formControlName="login"
+        placeholder="username"
+      />
+
+      <br />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+        placeholder="Password"
+      />
+
+      <button
+        type="submit"
+        class="btn btn-danger"
+        [disabled]="!loginForm.valid"
+      >
+        Valider
+      </button>
+    </div>
+  </form>
+</div>
