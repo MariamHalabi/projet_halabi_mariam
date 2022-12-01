@@ -83,7 +83,7 @@ function createClientFromBody($body): Client {
     $client->locale = $body['locale'];
     $client->address = $body['address'];
     $client->city = $body['city'];
-    $client->zip = $body['zip'];
+    $client->zip = $body['cp'];
     $client->country = $body['country'];
     $client->civility = $body['civility'];
     return $client;
