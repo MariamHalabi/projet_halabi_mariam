@@ -77,6 +77,7 @@ export class ComposantFormulaireComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
+    console.log('hello');
     this.tel = PhonePipe.transform(this.tel);
     if (this.inputCP != undefined && this.inputTEL != undefined) {
       console.log('yes');
