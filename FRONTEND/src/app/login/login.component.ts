@@ -42,17 +42,17 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.login != null &&
       this.loginForm.value.password != null
     ) {
-      // this.loginService
-      //   .login(this.loginForm.value.login, this.loginForm.value.password)
-      //   .subscribe((response) => {
-      //     this.utilisateur.emit(response);
-      //   });
-      this.loginService.login(
-        this.loginForm.value.login,
-        this.loginForm.value.password
-      );
-      this.connecte = true;
-      this.directedroute.navigate(['/catalogue']);
+      this.loginService
+        .login(this.loginForm.value.login, this.loginForm.value.password)
+        .subscribe((response) => {
+          this.utilisateur.emit(response);
+        });
+      //   this.loginService.login(
+      //     this.loginForm.value.login,
+      //     this.loginForm.value.password
+      //   );
+      //   this.connecte = true;
+      //   this.directedroute.navigate(['/catalogue']);
     }
   }
 }

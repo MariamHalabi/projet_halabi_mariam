@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   catalogue: '../assets/catalogueMock.json',
-  apiUrl: '../assets/catalogueMock.json',
-  //apiUrl: 'https://tp05-halabi-mariam.onrender.com/api',
+  //apiUrl: '../assets/catalogueMock.json',
+  apiUrl: 'https://tp05-halabi-mariam.onrender.com/api',
 };
 
 /*

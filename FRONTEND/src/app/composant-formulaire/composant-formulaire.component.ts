@@ -76,7 +76,7 @@ export class ComposantFormulaireComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  clic(): void {
+  onSubmit(): void {
     this.tel = PhonePipe.transform(this.tel);
     if (this.inputCP != undefined && this.inputTEL != undefined) {
       console.log('yes');
@@ -96,6 +96,12 @@ export class ComposantFormulaireComponent implements OnInit {
         console.log(
           'cpifOne ' + this.isShownCp + ' telifOne ' + this.isShownTel
         );
+
+        this.clientService.register(this.client).subscribe((client) => {
+          this.clientService.client = client;
+        });
+
+        window.scrollTo(0, document.body.scrollHeight);
       } else {
         this.recapShow = false;
         if (
@@ -115,12 +121,6 @@ export class ComposantFormulaireComponent implements OnInit {
         }
       }
     }
-    window.scrollTo(0, document.body.scrollHeight);
-
-    this.clientService.register(this.client).subscribe((client) => {
-      this.clientService.client = client;
-      this.router.navigate(['/recap']);
-    });
   }
 
   clicChange() {

@@ -11,9 +11,9 @@ export class LoginService {
   env = environment;
   connected: boolean = false;
 
-  login(login: string, password: string) /*: Obervable de any je crois*/ {
-    //return this.http.post(this.env.apiUrl + '/login', { login, password });
+  login(login: string, password: string): Observable<any> {
     this.connected = true;
+    return this.http.post(this.env.apiUrl + '/login', { login, password });
   }
 
   signout() {
