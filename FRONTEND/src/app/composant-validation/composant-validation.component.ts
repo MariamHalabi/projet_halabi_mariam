@@ -29,8 +29,6 @@ export class ComposantValidationComponent implements OnInit {
   @Input() country: String = '';
   @Input() champsPC: any;
 
-  
-
   verif: string = '';
   res: boolean = false;
 
@@ -50,7 +48,7 @@ export class ComposantValidationComponent implements OnInit {
   }
 
   clic() {
-    console.log('chzmps chzmps ' + this.champsPC);
+    // console.log('chzmps chzmps ' + this.champsPC);
 
     this.change.emit(
       'Votre Prénom : ' +

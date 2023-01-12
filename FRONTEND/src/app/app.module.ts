@@ -14,6 +14,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AccueilComponent } from './accueil/accueil/accueil.component';
 import { EtatPanier } from './shared/etats/etat-panier';
 import { ClientService } from './client/services/client.service';
+import { SearchComponent } from './search/search.component';
+import { SearchService } from './service-search/search.service';
+import { FormsModule } from '@angular/forms';
+import { ProduitDetailsComponent } from './produit-details/produit-details.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,8 @@ import { ClientService } from './client/services/client.service';
     ComposantTetiaireComponent,
     ComposantFooterComponent,
     AccueilComponent,
+    SearchComponent,
+    ProduitDetailsComponent,
   ],
   imports: [
     NgxsModule.forRoot([EtatPanier]),
@@ -29,6 +35,7 @@ import { ClientService } from './client/services/client.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     LoginService,
@@ -38,6 +45,7 @@ import { ClientService } from './client/services/client.service';
       multi: true,
       deps: [Router],
     },
+    SearchService,
   ],
   bootstrap: [AppComponent],
 })

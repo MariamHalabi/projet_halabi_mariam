@@ -67,6 +67,7 @@ export class ComposantFormulaireComponent implements OnInit {
   @ViewChild('codePostalChamps') inputCP: ElementRef | undefined;
   @ViewChild('telnumber') inputTEL: ElementRef | undefined;
   @ViewChild('recap') recapElement: ElementRef | undefined;
+  @ViewChild('recapi') recapiElement: ElementRef | undefined;
 
   set appCtrlDataDirective(directive: CtrlDataDirectiveDirective) {
     if (this.inputCP != undefined)
@@ -114,9 +115,11 @@ export class ComposantFormulaireComponent implements OnInit {
         }
       }
     }
+    window.scrollTo(0, document.body.scrollHeight);
+
     this.clientService.register(this.client).subscribe((client) => {
       this.clientService.client = client;
-      this.router.navigate(['/client/result']);
+      this.router.navigate(['/recap']);
     });
   }
 
@@ -124,7 +127,7 @@ export class ComposantFormulaireComponent implements OnInit {
     this.recap =
       'Votre Prénom : ' +
       this.prenom +
-      ' ***** Votre nom : ' +
+      ' \n ***** Votre nom : ' +
       this.nom +
       ' ***** Votre adresse : ' +
       this.adresse +

@@ -1,12 +1,15 @@
 <nav class="navbar navbar-default">
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><a [routerLink]="['/home']">Accueil</a></li>
       <li><a [routerLink]="['/login']">Login</a></li>
       <li><a [routerLink]="['/inscription']">Inscription client</a></li>
       <li><a [routerLink]="['/catalogue']">Catalogue</a></li>
+      <li><a [routerLink]="['/search']">Rechercher un produit</a></li>
+
       <li>
-        <a [routerLink]="['/panier']">Panier ({{ productCount$ | async }})</a>
+        <a [routerLink]="['/panier']"
+          >Mon paanier ({{ productCount$ | async }})</a
+        >
       </li>
     </ul>
   </div>

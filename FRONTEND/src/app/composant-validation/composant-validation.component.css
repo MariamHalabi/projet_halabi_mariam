@@ -3,5 +3,27 @@ div {
 }
 h1 {
   text-align: center;
-  color: darkblue;
+  color: white;
+  background-color: #058e79;
+}
+.recapB {
+  width: 600px;
+}
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #058e79 0%,
+    #05e1a6 51%,
+    #058e79 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
 }

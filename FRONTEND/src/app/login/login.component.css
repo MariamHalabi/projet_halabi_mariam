@@ -1,3 +1,99 @@
 .btn-danger {
   margin-top: 1em;
 }
+
+body {
+  margin-top: 20px;
+  /* background: #f6f9fc; */
+}
+.account-block {
+  padding: 50%;
+  background-image: url("https://media.istockphoto.com/id/156026594/photo/babies-playing-with-musical-toys.jpg?s=612x612&w=0&k=20&c=-k2c0KAh4Uv90EJ-ZbLFX7qJTcTTHbkY-gJc_FO9SU8=");
+  background-repeat: repeat-x;
+  background-size: unset;
+  background-position: 0px 0px;
+  height: 300px;
+  /* qil wa kutib*/
+  animation: slide 20s linear infinite;
+}
+.account-block .rounded-right {
+  height: 300px;
+  /* qil wa kutib*/
+}
+.account-block .overlay {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+}
+.account-block .account-testimonial {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  height: 300px;
+}
+.text-theme {
+  font-size: x-large;
+  color: #058e79 !important;
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1450% 0;
+  }
+}
+.second-column {
+  height: 300px;
+}
+.container::before {
+  /* background-color: #19dab4; */
+  background-image: url("https://img.freepik.com/premium-vector/children-s-pattern-colorful-style_23-2147519858.jpg?w=2000");
+  background-size: cover;
+  background-position: unset;
+  opacity: 0.1;
+  width: 715px;
+  height: 281px;
+  position: absolute !important;
+}
+.container {
+  height: 300px !important;
+  max-height: 300px !important;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #058e79 0%,
+    #05e1a6 51%,
+    #058e79 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}

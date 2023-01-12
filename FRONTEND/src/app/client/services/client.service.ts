@@ -16,7 +16,7 @@ export class ClientService {
   }
 
   register(client: Client): Observable<Client> {
-    return this.http.post<Client>(this.env.apiUrl + '/register', client);
+    return this.http.post<Client>(this.env.apiUrl + '/inscription', client);
   }
 
   get client(): Client {

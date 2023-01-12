@@ -1,0 +1,27 @@
+<div class="form-group">
+  <label for="github-search">Search for GitHub Users:</label>
+  <input
+    #input
+    id="github-search"
+    type="text"
+    class="form-control"
+    placeholder="Search a Product"
+    (keypress)="getProduitsRecherches()"
+    [(ngModel)]="searchedPro"
+  />
+
+  <!-- <div class="invalid-feedback" ngIf="searchFailed">
+      Sorry, suggestions could not be loaded.
+    </div> -->
+</div>
+
+<hr />
+
+<ul class="list-unstyled">
+  <li class="media" *ngFor="let product of products">
+    <img [src]="product.image" class="mr-3" alt="product.name" />
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{ product.name }}</h5>
+    </div>
+  </li>
+</ul>

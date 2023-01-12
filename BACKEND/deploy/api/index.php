@@ -12,12 +12,38 @@ const JWT_SECRET = "makey1234567";
 $app = AppFactory::create();
 
 $app->post('/api/login', function (Request $request, Response $response) {
-    $body = (array)$request->getParsedBody();
+   /* $body = (array)$request->getParsedBody();
     $login = $body['login'];
     $password = $body['password'];
 
     $jwt = createJWT($login, $password);
-    return $response->withHeader("Authorization", "Bearer $jwt");
+    return $response->withHeader("Authorization", "Bearer $jwt");*/
+
+    $err=false;
+    $inputJSON = file_get_contents('php://input');
+    $body = json_decode( $inputJSON, TRUE );
+    $login = $body['login'] ?? "";
+    $password = $body['password'] ?? "";
+
+    //check format login and password
+    if (empty($login) || empty($password)|| !preg_match("/^[a-zA-Z0-9]+$/", $login) || !preg_match("/^[a-zA-Z0-9]+$/", $password)) {
+        $err=true;
+    }
+
+    global $entityManager;
+    $user = $entityManager->getRepository('client')->findOneBy(array('username' => $login, 'password' => $password));
+    $id = $user->getId();
+
+    if (!$err && $user) {
+        $response = createJwT($response, $login, $password);
+       // $response = addHeaders($response);
+        $data = array('login' => $login, 'id' => $id);
+        $response->getBody()->write(json_encode($data));
+    }
+    else{
+        $response = $response->withStatus(401);
+    }
+    return $response;
 });
 
 function createJWT($login, $password) : string
@@ -65,7 +91,7 @@ function filterArrayById($array, $id)
     return current($filtered_array);
 }
 
-$app->post('/api/register', function (Request $request, Response $response) {
+$app->post('/api/inscription', function (Request $request, Response $response) {
     $body = (array)$request->getParsedBody();
     $client = createClientFromBody($body);
     $response->getBody()->write(json_encode($client));

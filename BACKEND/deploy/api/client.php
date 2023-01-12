@@ -1,5 +1,6 @@
 <?php
 class Client {
+  public int $clientID;
     public string $firstname;
     public string $lastname;
     public string $email;

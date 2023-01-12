@@ -4,7 +4,11 @@
     <div *ngFor="let product of products$ | async" class="col-xs-6 col-md-6">
       <div class="product tumbnail thumbnail-3 product-bloc">
         <a [routerLink]="['/catalogue/product/', product.id]"
-          ><img class="imgP" src="{{ product.image }}" alt=""
+          ><img
+            class="imgP"
+            src="{{ product.image }}"
+            (onclick)="showModal(product)"
+            alt=""
         /></a>
         <div class="caption">
           <h6>
@@ -12,8 +16,7 @@
               product.name
             }}</a>
           </h6>
-          <span style="font-size: x-small">{{ product.description }}</span
-          ><br />
+
           <span class="price sale"> {{ product.price }} €</span>
           <div>
             <button
@@ -27,6 +30,18 @@
                 aria-hidden="true"
               ></span>
               Ajouter au panier
+            </button>
+            <button
+              style="float: left"
+              (click)="showDetails(product)"
+              type="button"
+              class="btn btn-default"
+            >
+              <span
+                class="glyphicon glyphicon-info-sign"
+                aria-hidden="true"
+              ></span>
+              Détails
             </button>
           </div>
         </div>

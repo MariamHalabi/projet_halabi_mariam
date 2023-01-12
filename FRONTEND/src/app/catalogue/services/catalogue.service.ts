@@ -12,6 +12,8 @@ export class CatalogueService {
   env = environment;
 
   getProduits(): Observable<Produit[]> {
-    return this.http.get<Produit[]>(this.env.apiUrl + '/products');
+    return this.http.get<Produit[]>(this.env.apiUrl);
+
+    //return this.http.get<Produit[]>(this.env.apiUrl + '/products');
   }
 }
