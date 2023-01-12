@@ -13,13 +13,17 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./composant-produit.component.css'],
 })
 export class ComposantProduitComponent implements OnInit {
-  products$?: Observable<Produit[]>;
+  products$!: Produit[];
   show: boolean = false;
   env = environment;
   @ViewChild('myModal') myModal: ElementRef | undefined;
 
   ngOnInit(): void {
-    this.products$ = this.catalogueService.getProduits();
+    this.catalogueService.getProduits().subscribe({
+      next: (products: Produit[]) => {
+        this.products$ = products;
+      },
+    });
   }
 
   constructor(

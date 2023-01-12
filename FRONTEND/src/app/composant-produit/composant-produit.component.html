@@ -1,7 +1,7 @@
 <div class="container bootstrap snipets">
   <h1 class="text-center text-muted">Product catalog</h1>
   <div class="row flow-offset-1">
-    <div *ngFor="let product of products$ | async" class="col-xs-6 col-md-6">
+    <div *ngFor="let product of products$" class="col-xs-6 col-md-6">
       <div class="product tumbnail thumbnail-3 product-bloc">
         <a [routerLink]="['/catalogue/product/', product.id]"
           ><img
